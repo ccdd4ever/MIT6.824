@@ -21,7 +21,6 @@ func doReduce(
 
 	for i := 0; i < nMap; i++ {
 		fileName := reduceName(jobName, i, reduceTaskNumber)
-		log.Println("===fileName===", fileName)
 		// data, err := ioutil.ReadFile(fileName)
 		// if err != nil {
 		// 	log.Fatalf("<doReduce> ioutil.ReadFile(%s) failed:%s", fileName, err)
@@ -64,8 +63,6 @@ func doReduce(
 	for _, key := range keys {
 		enc.Encode(KeyValue{key, reduceF(key, maps[key])})
 	}
-
-	// TODO:
 	// You will need to write this function.
 	// You can find the intermediate file for this reduce task from map task number
 	// m using reduceName(jobName, m, reduceTaskNumber).

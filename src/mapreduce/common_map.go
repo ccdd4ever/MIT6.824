@@ -26,7 +26,6 @@ func doMap(
 	kv := mapF(inFile, string(data))
 	for i := 0; i < nReduce; i++ {
 		fileName := reduceName(jobName, mapTaskNumber, i)
-		log.Println("===fileName===",fileName)
 		file, err := os.Create(fileName)
 		file.Stat()
 		if err != nil {
@@ -43,8 +42,6 @@ func doMap(
 			}
 		}
 	}
-
-	// TODO:
 	// You will need to write this function.
 	// You can find the filename for this map task's input to reduce task number
 	// r using reduceName(jobName, mapTaskNumber, r). The ihash function (given
